@@ -24,7 +24,7 @@ const mongoose = require('mongoose')
 
 // mongodb 연결
 mongoose.connect(config.mongoURI,{}
-).then(() => console.log('MongoDB Connected...'))
+).then(() => console.log('MongoDB Connected...')).catch(err => console.log(err))
 
 // root 디렉토리에 hello world 출력
 app.get('/', (req, res) => {
@@ -97,6 +97,17 @@ app.get('/api/users/auth', auth, (req, res) => {
     })
 })
 
+//로그아웃 기능 구현
+app.get('/api/users/logout', auth, (req, res) => {
+
+    User.findOneAndUpdate({_id: req.user._id}, {token: ""}).then((user) => {
+        res.status(200).send({
+            success: true
+        })
+    }).catch((err) => {
+        return res.json({success:false, err});
+    })
+})
 
 // port에서 앱 실행
 app.listen(port, () => {
