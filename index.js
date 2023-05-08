@@ -105,7 +105,7 @@ app.get('/api/users/logout', auth, (req, res) => {
             success: true
         })
     }).catch((err) => {
-        return res.json({success:false, err});
+        res.json({success:false, err});
     })
 })
 
