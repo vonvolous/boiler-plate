@@ -100,7 +100,7 @@ app.get('/api/users/auth', auth, (req, res) => {
 //로그아웃 기능 구현
 app.get('/api/users/logout', auth, (req, res) => {
 
-    User.findOneAndUpdate({_id: req.user._id}, {token: ""}).then((user) => {
+    User.findOneAndUpdate({_id: req.user._id}, {token: ""}).then(() => {
         res.status(200).send({
             success: true
         })
