@@ -15,7 +15,8 @@
 ### 3. cors 이슈 -> proxy 설정
 ### 4. concurrently: client와 server 동시 실행
 ### 5. CSS framework === ant design(antd)
-### 6. Redux
+### 6-1. Redux : 상태 관리해줌
+### 6-2. React Hooks
 ### 7. 로그인 페이지 만들기
 ### 8. 회원가입 페이지 만들기
 ### 9. 로그아웃
