@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers } from "redux"; //combineReducer를 이용해 rootReducer로 합쳐줌
 //import user from './user_reducer';
 
 const rootReducer = combineReducers({
