@@ -14,7 +14,7 @@
 ### 2. install react router dom
 ### 3. cors 이슈 -> proxy 설정
 ### 4. concurrently
-### 5. CSS framework
+### 5. CSS framework === ant design(antd)
 ### 6. Redux
 ### 7. 로그인 페이지 만들기
 ### 8. 회원가입 페이지 만들기
