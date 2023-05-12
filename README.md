@@ -13,7 +13,7 @@
 ### 1. using npx create react app
 ### 2. install react router dom
 ### 3. cors 이슈 -> proxy 설정
-### 4. concurrently
+### 4. concurrently: client와 server 동시 실행
 ### 5. CSS framework === ant design(antd)
 ### 6. Redux
 ### 7. 로그인 페이지 만들기
