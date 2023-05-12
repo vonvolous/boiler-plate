@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Routes, Route, Outlet, Link
 } from "react-router-dom";
+import 'antd/dist/reset.css';
 
 import LandingPage from './components/views/LandingPage/LandingPage';
 import LoginPage from './components/views/LoginPage/LoginPage';

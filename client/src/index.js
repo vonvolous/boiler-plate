@@ -5,13 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import 'antd/dist/antd.css';
-import { applyMiddleware, configureStore } from 'redux';
+import { applyMiddleware } from 'redux';
+import { legacy_createStore as createStore } from 'redux'
 import promiseMiddleware from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
 import Reducer from './_reducers';
 
-const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk)(configureStore)
+const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
