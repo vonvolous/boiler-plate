@@ -72,7 +72,7 @@ function RegisterPage() {
         
         <br />
         <button type='submit'>
-          회원 가입
+          CREATE AN ACCOUNT
         </button>
       </form>
     </div>

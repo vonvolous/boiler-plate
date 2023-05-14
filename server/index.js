@@ -112,12 +112,16 @@ app.get('/api/users/logout', auth, (req, res) => {
     })
 })
 
+//use this to show the image you have in node js server to client (react js)
+//https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
+app.use('/uploads', express.static('uploads'));
+
 // port에서 앱 실행
 // 특정 포트 백서버로 둠
 const port = 8080
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Server Running at port ${port}`)
 })
 
 // package.json의 script에 start로 node index.js 추가후

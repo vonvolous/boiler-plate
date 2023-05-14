@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const saltRounds = 10
 const jwt = require('jsonwebtoken');
+const moment = require('moment');
 
 const userSchema = mongoose.Schema({
     name:{
@@ -68,7 +69,9 @@ userSchema.methods.generateToken = function(cb) {
 
     //jsonwebtoken 이용해서 트큰을 생성하기
     var token = jwt.sign(user._id.toHexString(), 'secretToken')
+    var oneHour = moment().add(1, 'hour').valueOf();
 
+    user.tokenExp = oneHour;
     user.token = token
     user.save().then(() => {
         cb(null, user);

@@ -1,9 +1,14 @@
+import 'react-app-polyfill/ie9';
+import 'react-app-polyfill/ie11';
+import 'core-js';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+
 import { Provider } from 'react-redux';
 import { applyMiddleware } from 'redux';
 import { legacy_createStore as createStore } from 'redux'
