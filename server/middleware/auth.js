@@ -17,10 +17,10 @@ let auth = (req, res, next) => {
         req.token = token;
         req.user = user;
         next();
-    })
+    });
     // 유저가 있으면 인증 OK
 
     // 유저가 없으면 인증 NO
-}
+};
 
 module.exports = { auth };

@@ -43,10 +43,10 @@ userSchema.pre('save', function( next ) {
     if (user.isModified('password')) {
         //비밀번호를 암호화 시킨다.
         bcrypt.genSalt(saltRounds, function(err, salt) {
-            if (err) return next(err)
+            if (err) return next(err);
 
             bcrypt.hash(user.password, salt, function(err, hash) {
-                if (err) return next(err)
+                if (err) return next(err);
                 user.password = hash
                 next()
             })
@@ -85,7 +85,6 @@ userSchema.statics.findByToken = function(token, cb) {
 
     //토큰 decoding
     jwt.verify(token, 'secretToken', function(err, decoded) {
-        if (err) return cb(err);
         // 유저 아이디를 이용해 유저를 찾은 다음
         //클라이언트에서 가져온 token과 db에 보관된 토큰이 일치하는지 확인
         user.findOne({ "_id": decoded, "token": token }).then(user=>{
