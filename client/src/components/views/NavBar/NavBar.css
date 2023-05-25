@@ -40,6 +40,10 @@
     cursor: pointer;
 }
 
+.nav-item {
+    margin-top: 15px;
+}
+
 .logout {
     color:blue;
     background-color: transparent;

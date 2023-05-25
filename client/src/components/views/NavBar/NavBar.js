@@ -14,6 +14,8 @@ function NavBar() {
   const [open, setOpen] = useState(false);
   const user = useSelector(state => state.user)
 
+  const userCheck = user.userData && !user.userData.isAuth;
+
   const onClickHandler = () => {
     axios.get('/api/users/logout')
     .then(response => {
@@ -25,7 +27,6 @@ function NavBar() {
     })
   }
 
-  if (user.userData && !user.userData.isAuth) {
     return (
       <nav className='navbar'>
         <Link to = '/' className="nav-logo" onClick={() => setOpen(false)}>
@@ -35,11 +36,15 @@ function NavBar() {
           </p>
         </Link>
         <ul className={open ? 'nav-links active' : 'nav-links'}>
-          <li className='nav-item'>
+          <li className='nav-item' style={{marginRight: '380px'}}>
             <Link to = '/' className='nav-link' onClick={() => setOpen(false)}>
-            Main
+              Main
             </Link>
           </li>
+        </ul>
+
+        {userCheck ? (
+        <ul className={open ? 'nav-links active' : 'nav-links'}>
           <li className='nav-item'>
             <Link to = '/login' className='nav-link' onClick={() => setOpen(false)}>
               Sign In
@@ -50,33 +55,16 @@ function NavBar() {
               Sign Up
             </Link>
           </li>
-        </ul>
-      </nav>
-    )
-  } else {
-    return (
-      <nav className='navbar'>
-        <Link to = '/' className="nav-logo" onClick={() => setOpen(false)}>
-          <p style={{marginTop: '30px', display: 'flex', flexDirection: 'row', justifyContent: 'center'}}> 
-            <RiMovie2Line style={{fontSize: '2rem'}}/>
-            <h2 style={{fonSize: '2rem'}}>Logo</h2>
-          </p>
-        </Link>
+        </ul>) : (
         <ul className={open ? 'nav-links active' : 'nav-links'}>
-          <li className='nav-item'>
-            <Link to = '/' className='nav-link' onClick={() => setOpen(false)}>
-            Main
-            </Link>
-          </li>
-          <li className='nav-item'>
-            <button className='logout' onClick={onClickHandler}>
-              <FiLogOut style={{fontSize: '1rem'}} />
-            </button>
-          </li>
-        </ul>
-      </nav>
+        <li className='nav-item'>
+          <button className='logout' onClick={onClickHandler}>
+            <FiLogOut style={{fontSize: '1rem'}} />&nbsp;Logout
+          </button>
+        </li>
+      </ul>)}
+    </nav>
     )
-  }
 }
 
 export default NavBar
